@@ -206,17 +206,38 @@
     <Compile Include="Migrations\201811281233582_InitialModel.Designer.cs">
       <DependentUpon>201811281233582_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281339594_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201811281339594_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201811281339594_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281343485_AddMembershipType.cs" />
+    <Compile Include="Migrations\201811281343485_AddMembershipType.Designer.cs">
+      <DependentUpon>201811281343485_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281400287_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201811281400287_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201811281400287_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281419429_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\201811281419429_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>201811281419429_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RandomBookViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Bookly-20181127042201.mdf" />
+    <Content Include="App_Data\aspnet-Bookly-20181127042201_log.ldf">
+      <DependentUpon>aspnet-Bookly-20181127042201.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-cosmo.css" />
     <Content Include="Content\bootstrap-slate.css" />
     <Content Include="Content\bootstrap-spacelab.css" />
@@ -284,9 +305,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -303,6 +322,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811281233582_InitialModel.resx">
       <DependentUpon>201811281233582_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281339594_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>201811281339594_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281343485_AddMembershipType.resx">
+      <DependentUpon>201811281343485_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281400287_PopulateMembershipTypes.resx">
+      <DependentUpon>201811281400287_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281419429_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>201811281419429_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
