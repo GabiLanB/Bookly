@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using Bookly.Migrations;
+using System.Web.UI.WebControls;
 using Bookly.Models;
 using Bookly.ViewModels;
 
@@ -49,10 +49,10 @@ namespace Bookly.Controllers
             if (book == null)
                 return HttpNotFound();
 
-            var viewModel = new BookFormViewModel
+            var viewModel = new BookFormViewModel(book)
             {
-                Book = book,
-                Genres = _context.Genres.ToList()
+                
+                Genres = _context.Genres.ToList(),
             };
 
             return View("BookForm", viewModel);
@@ -90,8 +90,19 @@ namespace Bookly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Book book)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel(book)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("BookForm", viewModel);
+            }
+
             if (book.Id == 0)
             {
                 book.DateAdded = DateTime.Now;
@@ -106,9 +117,11 @@ namespace Bookly.Controllers
                 bookInDb.ReleaseDate = book.ReleaseDate;
             }
 
+           
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Books");
         }
+
     }
 }
